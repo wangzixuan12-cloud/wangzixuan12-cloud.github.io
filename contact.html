@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · Wang Zixuan Portfolio</title>
+  <meta name="description" content="Get in touch with Wang Zixuan — collaboration, opportunities, or just a conversation.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Contact page specific tweaks */
+    .contact-page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .contact-intro {
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+    .contact-intro .s-title { margin-bottom: 0.6rem; }
+    .contact-intro p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    /* Form submit button */
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      background: linear-gradient(135deg, var(--teal-mid), var(--teal-dark));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.45);
+    }
+    .form-submit:active { transform: translateY(0); }
+
+    /* Email link */
+    .email-link {
+      color: var(--teal-mid);
+      font-weight: 600;
+      border-bottom: 1px dashed var(--teal);
+      transition: opacity 0.2s;
+    }
+    .email-link:hover { opacity: 0.75; }
+
+    /* Social / links row */
+    .social-note {
+      background: var(--teal-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 2rem;
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      color: var(--teal-mid);
+      line-height: 1.7;
+    }
+    .social-note strong { font-weight: 600; display: block; margin-bottom: 0.25rem; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Wang <span>Zixuan</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="clep.html" class="nav-link">CLEP</a></li>
+      <li><a href="overseas.html" class="nav-link">Overseas</a></li>
+      <li><a href="cca.html" class="nav-link">CCA</a></li>
+      <li><a href="correspondent.html" class="nav-link">Correspondent</a></li>
+      <li><a href="experiences.html" class="nav-link">Awards</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home 首页</a>
+  <a href="clep.html" class="nav-link">CLEP 语特</a>
+  <a href="overseas.html" class="nav-link">Overseas 海外浸濡</a>
+  <a href="cca.html" class="nav-link">CCA 课外活动</a>
+  <a href="correspondent.html" class="nav-link">Correspondent 通讯员</a>
+  <a href="experiences.html" class="nav-link">Awards &amp; Experiences</a>
+  <a href="contact.html" class="nav-link">Contact 联系我</a>
+</div>
+
+<main class="page-wrapper">
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow fade-up">Get in Touch</div>
+      <h1 class="page-title fade-up">Say <span>Hello</span></h1>
+      <p class="page-subtitle fade-up">联系我 · Let's talk</p>
+      <p class="page-desc fade-up">
+        合作机会、项目讨论、或者只是想聊聊摄影和视频——都可以发邮件过来。回复速度比我的Battery更可靠。
+        <br><br>
+        Collaboration, opportunities, project ideas, or a conversation about cameras. Email works. I'm faster to reply than I am to check social media.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ── Contact content ── -->
+  <div class="contact-page-wrap">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-info fade-left">
+        <div class="s-label" style="margin-bottom:0.4rem;">Direct Contact</div>
+        <h2 class="s-title" style="font-size:2rem; margin-bottom:1.5rem;">Let's Connect</h2>
+
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-text">
+            <div class="ci-label">Email</div>
+            <div class="ci-value">
+              <a href="mailto:wang_zixuan_12@students.edu.sg" class="email-link">
+                wang_zixuan_12@students.edu.sg
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">🏫</div>
+          <div class="ci-text">
+            <div class="ci-label">School</div>
+            <div class="ci-value">Chung Cheng High School (Main)<br>中正中学（总校）</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">
+            <div class="ci-label">Based in</div>
+            <div class="ci-value">Singapore 🇸🇬</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">🎬</div>
+          <div class="ci-text">
+            <div class="ci-label">Available for</div>
+            <div class="ci-value">Photography, Videography, Journalism projects<br>摄影、视频、媒体合作</div>
+          </div>
+        </div>
+
+        <div class="social-note">
+          <strong>📬 A note on response time</strong>
+          I'm a student first. If I'm in exam season (like, right now in 2026), replies might take a day or two. But I will reply. Promise.
+          <br><br>
+          我是学生，考试季回复可能慢一点，但一定会回。
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form fade-right">
+        <div class="s-label" style="margin-bottom:0.4rem;">Send a Message</div>
+        <h2 class="s-title" style="font-size:2rem; margin-bottom:1.5rem;">Drop a Note</h2>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.5rem;">
+          This form is a display mockup — please email directly at the address on the left.<br>
+          <span style="color:var(--text-light);">此表单为展示用途，请直接发送邮件。</span>
+        </p>
+
+        <form onsubmit="return false;" aria-label="Contact form">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Name / 姓名</label>
+            <input
+              type="text"
+              id="contact-name"
+              class="form-input"
+              placeholder="Your name"
+              autocomplete="name"
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email</label>
+            <input
+              type="email"
+              id="contact-email"
+              class="form-input"
+              placeholder="your@email.com"
+              autocomplete="email"
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Subject / 主题</label>
+            <input
+              type="text"
+              id="contact-subject"
+              class="form-input"
+              placeholder="What's this about?"
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message / 留言</label>
+            <textarea
+              id="contact-message"
+              class="form-textarea"
+              placeholder="Say what you need to say..."
+              rows="5"
+            ></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Send Message ✉️
+          </button>
+          <p class="form-note" style="margin-top:1rem;">
+            For actual reach: <a href="mailto:wang_zixuan_12@students.edu.sg" class="email-link">wang_zixuan_12@students.edu.sg</a>
+          </p>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom sign-off -->
+    <div style="margin-top:4rem; text-align:center;" class="fade-up">
+      <div style="font-family:'DM Serif Display', serif; font-size:1.4rem; color:var(--text); margin-bottom:0.5rem;">
+        Thanks for reading. 谢谢你来到这里。
+      </div>
+      <p style="font-size:0.85rem; color:var(--text-light); max-width:480px; margin:0 auto; line-height:1.8;">
+        Every page here is a real thing I did. Not polished for a portfolio — just honest about the work. If something resonates, let's talk.
+        <br>
+        <span style="color:var(--text-muted); font-size:0.78rem;">这里的每一件事都是真实发生过的。</span>
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="index.html" class="btn-outline" style="margin:0 auto;">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">Wang <span>Zixuan</span></div>
+  <p style="font-size:0.8rem; margin-bottom:0.3rem;">王梓轩 · Chung Cheng High School</p>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Home</a>
+    <a href="clep.html" class="footer-link">CLEP</a>
+    <a href="overseas.html" class="footer-link">Overseas</a>
+    <a href="cca.html" class="footer-link">CCA</a>
+    <a href="correspondent.html" class="footer-link">Correspondent</a>
+    <a href="experiences.html" class="footer-link">Awards</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 · Built with care 🍵</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
