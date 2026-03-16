@@ -15,19 +15,21 @@
   --blue-light: #e0f2fe;
   --blue-mid: #0284c7;
   --cyan-dark: #155e75;
-  --bg: #f8fffe;
-  --bg-alt: #f0fdfa;
+  --accent: #f59e0b;
+  --accent-light: #fef3c7;
+  --bg: #f7fffe;
+  --bg-alt: #edfaf7;
   --text: #1a2e2a;
-  --text-light: #5f7a74;
-  --text-muted: #94a3b8;
+  --text-light: #4d6d67;
+  --text-muted: #8fa8a2;
   --card-bg: #ffffff;
-  --border: rgba(13, 148, 136, 0.12);
-  --shadow-sm: 0 2px 15px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 30px rgba(13, 148, 136, 0.08);
-  --shadow-lg: 0 20px 50px rgba(13, 148, 136, 0.12);
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --border: rgba(13, 148, 136, 0.13);
+  --shadow-sm: 0 2px 18px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 32px rgba(13, 148, 136, 0.10);
+  --shadow-lg: 0 20px 56px rgba(13, 148, 136, 0.14);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
   --nav-height: 70px;
 }
 
@@ -39,7 +41,8 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 16px;
 }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -235,7 +238,7 @@ ul { list-style: none; }
 }
 .hero-name {
   font-family: 'DM Serif Display', serif;
-  font-size: 5rem;
+  font-size: 5.2rem;
   line-height: 1.0;
   margin-bottom: 0.2rem;
 }
@@ -265,22 +268,22 @@ ul { list-style: none; }
   margin-bottom: 1.5rem;
 }
 .hero-stmt-zh {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 2.0;
   color: var(--text-light);
   max-width: 440px;
   margin-bottom: 0.8rem;
   font-style: italic;
-  border-left: 2px solid var(--teal);
-  padding-left: 1rem;
+  border-left: 3px solid var(--teal);
+  padding-left: 1.1rem;
 }
 .hero-stmt-en {
-  font-size: 0.82rem;
-  line-height: 1.85;
+  font-size: 0.87rem;
+  line-height: 1.9;
   color: var(--text-muted);
   max-width: 440px;
   margin-bottom: 2rem;
-  padding-left: 1rem;
+  padding-left: 1.1rem;
 }
 .hero-tags {
   display: flex;
@@ -382,14 +385,14 @@ ul { list-style: none; }
 }
 .s-title {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   line-height: 1.15;
   margin-bottom: 0.4rem;
   color: var(--text);
 }
 .s-subtitle {
   color: var(--text-light);
-  font-size: 0.92rem;
+  font-size: 0.97rem;
   margin-bottom: 3rem;
 }
 
@@ -452,8 +455,8 @@ ul { list-style: none; }
 }
 .mag-desc {
   color: var(--text-light);
-  font-size: 0.87rem;
-  line-height: 1.8;
+  font-size: 0.92rem;
+  line-height: 1.85;
   margin-bottom: 1.2rem;
 }
 .mag-tags {
@@ -486,7 +489,7 @@ ul { list-style: none; }
 .feature-card {
   background: var(--card-bg);
   border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
+  padding: 2.2rem 1.6rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -497,10 +500,10 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, var(--teal), var(--blue));
 }
-.feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .fc-icon { font-size: 2rem; margin-bottom: 1rem; }
 .fc-title {
   font-family: 'DM Serif Display', serif;
@@ -509,7 +512,7 @@ ul { list-style: none; }
   color: var(--text);
 }
 .fc-title-cn { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.7rem; }
-.fc-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.75; }
+.fc-desc { font-size: 0.87rem; color: var(--text-light); line-height: 1.8; }
 
 /* ─── Award Cards ─── */
 .awards-grid {
@@ -520,13 +523,13 @@ ul { list-style: none; }
 .award-card {
   background: var(--card-bg);
   border-radius: var(--radius-md);
-  padding: 2rem 1.2rem;
+  padding: 2.2rem 1.4rem;
   text-align: center;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.award-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.award-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-md); }
 .award-emoji { font-size: 2.2rem; margin-bottom: 0.8rem; }
 .award-name {
   font-family: 'DM Serif Display', serif;
@@ -584,7 +587,7 @@ ul { list-style: none; }
 .j-card {
   background: var(--card-bg);
   border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
+  padding: 2.2rem 1.6rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   position: relative;
@@ -595,10 +598,10 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, var(--teal), var(--blue));
 }
-.j-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.j-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .j-year {
   font-size: 0.65rem;
   letter-spacing: 3px;
@@ -612,7 +615,7 @@ ul { list-style: none; }
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
 }
-.j-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.65; }
+.j-desc { font-size: 0.84rem; color: var(--text-light); line-height: 1.7; }
 
 
 /* ─── Page Hero (sub-pages) ─── */
