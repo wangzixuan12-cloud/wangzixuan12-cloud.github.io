@@ -353,10 +353,33 @@ ul { list-style: none; }
 .photo-placeholder:nth-child(3) { background: linear-gradient(145deg, #ccfbf1, #e0faf5); margin-top: -1.5rem; }
 .photo-placeholder:nth-child(4) { background: linear-gradient(145deg, #dbeafe, #e0f2fe); margin-top: 1rem; }
 
+/* When photo-placeholder contains a real image, hide the pseudo emoji */
+.photo-placeholder:has(img)::after { display: none; }
+
 .photo-caption {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0;
+  right: 0;
+  z-index: 2;
   line-height: 1.5;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* Real images inside mag-image containers */
+.mag-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
 }
 
 
@@ -940,4 +963,38 @@ ul { list-style: none; }
   .awards-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 1rem; flex-wrap: wrap; }
   .stat-num { font-size: 1.5rem; }
+}
+
+/* ─── Portfolio Image Utilities ─── */
+.project-img, .feature-img, .section-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ─── Photo Gallery Grid ─── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
