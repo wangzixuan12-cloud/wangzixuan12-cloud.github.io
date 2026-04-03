@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography · Wang Zixuan Portfolio</title>
+  <meta name="description" content="Photography gallery — Wang Zixuan's visual documentation work across four years.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Photography page specific styles ── */
+    .photo-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: #0a1a18;
+    }
+    .photo-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #0d2b27 0%, #0a1a18 60%, #071212 100%);
+    }
+    .photo-hero-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 3px;
+      opacity: 0.35;
+    }
+    .photo-hero-grid-item {
+      overflow: hidden;
+      background: #111;
+    }
+    .photo-hero-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%);
+    }
+    .photo-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,26,24,0.97) 0%, rgba(10,26,24,0.6) 40%, rgba(10,26,24,0.2) 100%);
+    }
+    .photo-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .photo-hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .photo-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4.5rem;
+      color: white;
+      line-height: 1.0;
+      margin-bottom: 0.5rem;
+    }
+    .photo-hero-title span {
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .photo-hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Gallery Section ── */
+    .gallery-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-category {
+      margin-bottom: 4rem;
+    }
+    .gallery-cat-label {
+      font-size: 0.65rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .gallery-cat-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .gallery-cat-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+    }
+
+    /* Masonry-style grid */
+    .photo-masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .photo-masonry .photo-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--card-bg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .photo-masonry .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .photo-masonry .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .photo-card-caption {
+      padding: 0.8rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Placeholder card */
+    .photo-placeholder-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-alt);
+      border: 2px dashed var(--border);
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .photo-placeholder-card .ph-icon {
+      font-size: 2.5rem;
+      opacity: 0.4;
+    }
+
+    /* Coming soon banner */
+    .coming-soon-banner {
+      background: linear-gradient(135deg, var(--teal-light), var(--blue-light));
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+    }
+    .csb-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .csb-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .csb-desc { font-size: 0.88rem; color: var(--text-light); max-width: 420px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      .photo-hero-title { font-size: 3rem; }
+      .photo-hero-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-masonry { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .photo-hero-title { font-size: 2.4rem; }
+      .photo-masonry { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Wang <span>Zixuan</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="clep.html" class="nav-link">CLEP</a></li>
+      <li><a href="overseas.html" class="nav-link">Overseas</a></li>
+      <li><a href="cca.html" class="nav-link">CCA</a></li>
+      <li><a href="correspondent.html" class="nav-link">Correspondent</a></li>
+      <li><a href="experiences.html" class="nav-link">Awards</a></li>
+      <li><a href="photography.html" class="nav-link active">Photography</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home 首页</a>
+  <a href="clep.html" class="nav-link">CLEP</a>
+  <a href="overseas.html" class="nav-link">Overseas 海外浸濡</a>
+  <a href="cca.html" class="nav-link">CCA 课外活动</a>
+  <a href="correspondent.html" class="nav-link">Correspondent 通讯员</a>
+  <a href="experiences.html" class="nav-link">Awards &amp; Experiences</a>
+  <a href="photography.html" class="nav-link">Photography 摄影</a>
+  <a href="contact.html" class="nav-link">Contact 联系我</a>
+</div>
+
+<main class="page-wrapper">
+
+  <!-- ── Photo Hero ── -->
+  <div class="photo-hero">
+    <div class="photo-hero-bg"></div>
+
+    <!-- Background image grid -->
+    <div class="photo-hero-grid">
+      <div class="photo-hero-grid-item">
+        <img src="images/overseas/tw-mazu.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/overseas/hz-round-door.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/cca/drama-performance.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/correspondent/sph-media.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/overseas/tw-tea-garden.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/overseas/hz-autumn-street.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/clep/mv-screenshot.jpg" alt="" loading="eager">
+      </div>
+      <div class="photo-hero-grid-item">
+        <img src="images/overseas/hz-calligraphy.jpg" alt="" loading="eager">
+      </div>
+    </div>
+    <div class="photo-hero-overlay"></div>
+
+    <div class="photo-hero-content">
+      <div class="photo-hero-eyebrow">Visual Work · 摄影作品</div>
+      <h1 class="photo-hero-title">Photo<span>graphy</span></h1>
+      <p class="photo-hero-sub">摄影作品集 · Documentation, Portraiture &amp; Visual Storytelling</p>
+    </div>
+  </div>
+
+
+  <!-- ── Gallery Intro ── -->
+  <div class="gallery-section">
+
+    <div class="coming-soon-banner fade-up">
+      <div class="csb-icon">📷</div>
+      <div class="csb-title">Gallery Coming Soon</div>
+      <p class="csb-desc">
+        A curated selection of photography work — documenting places, people, and moments across four years — is being prepared for this page. Check back soon.
+        <br><br>
+        精选摄影作品正在整理中，包括风景、人像、活动记录等系列。敬请期待。
+      </p>
+    </div>
+
+
+    <!-- Taiwan Documentation -->
+    <div class="gallery-category fade-up">
+      <div class="gallery-cat-label">2025 · Documentation</div>
+      <div class="gallery-cat-title">Taiwan Immersion</div>
+      <p class="gallery-cat-desc">Selected photographs from the Taiwan Immersion — temples, tea gardens, night markets, and group moments.</p>
+      <div class="photo-masonry">
+        <div class="photo-card">
+          <img src="images/overseas/tw-mazu.jpg" alt="台湾妈祖庙大合照">
+          <div class="photo-card-caption">Mazu Temple · 妈祖庙大合照</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/tw-tea-garden.jpg" alt="台湾茶园">
+          <div class="photo-card-caption">Tea Garden · 茶园</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/tw-nightmarket.jpg" alt="台湾夜市">
+          <div class="photo-card-caption">Night Market · 夜市</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/tw-train.jpg" alt="观光小火车">
+          <div class="photo-card-caption">Scenic Railway · 观光火车</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/tw-sunset.jpg" alt="日落机翼">
+          <div class="photo-card-caption">Sunset Wing · 日落</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/tw-bus.jpg" alt="巴士合照">
+          <div class="photo-card-caption">On the Road · 途中</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Hangzhou Documentation -->
+    <div class="gallery-category fade-up">
+      <div class="gallery-cat-label">2026 · Documentation</div>
+      <div class="gallery-cat-title">Hangzhou Immersion</div>
+      <p class="gallery-cat-desc">Visual documentation of Hangzhou — where Song Dynasty heritage meets modern technology.</p>
+      <div class="photo-masonry">
+        <div class="photo-card">
+          <img src="images/overseas/hz-round-door.jpg" alt="杭州圆门">
+          <div class="photo-card-caption">Garden Moon Gate · 圆门</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/hz-autumn-street.jpg" alt="杭州秋日街景">
+          <div class="photo-card-caption">Autumn Street · 秋日街景</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/hz-calligraphy.jpg" alt="书法体验">
+          <div class="photo-card-caption">Calligraphy · 书法</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/hz-portrait.jpg" alt="人像">
+          <div class="photo-card-caption">Portrait · 人像</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/hz-school-group.jpg" alt="杭州学校大合照">
+          <div class="photo-card-caption">School Group · 学校合照</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/overseas/hz-xiamenair.jpg" alt="厦门航空出发">
+          <div class="photo-card-caption">Departure · 出发</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Performing Arts -->
+    <div class="gallery-category fade-up">
+      <div class="gallery-cat-label">2025 · Performing Arts</div>
+      <div class="gallery-cat-title">Chinese Drama CCA</div>
+      <p class="gallery-cat-desc">Behind the stage and on it — four years of Chinese Drama production.</p>
+      <div class="photo-masonry">
+        <div class="photo-card">
+          <img src="images/cca/drama-performance.jpg" alt="华文话剧演出">
+          <div class="photo-card-caption">Performance · 演出</div>
+        </div>
+        <div class="photo-card">
+          <img src="images/cca/syf-group.jpg" alt="CCA合照">
+          <div class="photo-card-caption">CCA Group · 话剧团队</div>
+        </div>
+        <div class="photo-placeholder-card">
+          <div class="ph-icon">🎭</div>
+          <div>More performing arts photos coming soon</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Placeholder for future work -->
+    <div class="gallery-category fade-up">
+      <div class="gallery-cat-label">Coming Soon · 即将上线</div>
+      <div class="gallery-cat-title">Original Photography</div>
+      <p class="gallery-cat-desc">A dedicated series of original photographic work — street, portrait, and documentary — to be added here.</p>
+      <div class="photo-masonry">
+        <div class="photo-placeholder-card">
+          <div class="ph-icon">🌆</div>
+          <div>Street Photography<br><span style="font-size:0.75em;opacity:0.6;">街头摄影</span></div>
+        </div>
+        <div class="photo-placeholder-card">
+          <div class="ph-icon">👤</div>
+          <div>Portrait Series<br><span style="font-size:0.75em;opacity:0.6;">人像系列</span></div>
+        </div>
+        <div class="photo-placeholder-card">
+          <div class="ph-icon">📰</div>
+          <div>Documentary Work<br><span style="font-size:0.75em;opacity:0.6;">纪实摄影</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">Wang <span>Zixuan</span></div>
+  <p style="font-size:0.8rem; margin-bottom:0.3rem;">王梓轩 · Chung Cheng High School</p>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Home</a>
+    <a href="clep.html" class="footer-link">CLEP</a>
+    <a href="overseas.html" class="footer-link">Overseas</a>
+    <a href="cca.html" class="footer-link">CCA</a>
+    <a href="correspondent.html" class="footer-link">Correspondent</a>
+    <a href="experiences.html" class="footer-link">Awards</a>
+    <a href="photography.html" class="footer-link">Photography</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 · Wang Zixuan</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
